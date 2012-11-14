@@ -1,0 +1,9 @@
+BoldAsFont=no
+Transparency=glass
+FontHeight=9
+BoldAsColour=yes
+OpaqueWhenFocused=no
+Font=Consolas
+
+# user append
+Blue=0,128,255
