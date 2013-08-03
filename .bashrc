@@ -192,7 +192,7 @@
 
 # User specific aliases and functions
 
-# for screen history
+# for screen history ------
 function share_history {
     history -a
     history -c
@@ -201,5 +201,6 @@ function share_history {
 PROMPT_COMMAND='share_history'
 shopt -u histappend
 export HISTSIZE=9999
+# ------
 
 alias ls='ls --color=auto'
