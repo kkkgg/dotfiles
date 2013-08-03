@@ -9,15 +9,15 @@
 
 " ------- neobundle -----------
 set nocompatible
-filetype off
 
 if has('vim_starting')
-  "set runtimepath+='path to neobundle directory'
-  set runtimepath+=~/.vim/neobundle.vim.git/
-  call neobundle#rc(expand('~/.vim/bundle/'))
-  "call neobundle#rc(expand('~/.vim'))
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
 "NeoBundle 'git://github.com/Shougo/clang_complete.git'
 "NeoBundle 'git://github.com/Shougo/echodoc.git'
 "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
@@ -28,6 +28,6 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
+NeoBundleCheck
 " ---------------------------
