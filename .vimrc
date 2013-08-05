@@ -2,7 +2,6 @@
 :set hlsearch
 :set tabstop=4
 :set shiftwidth=4
-:set history=1000
 :set autoindent
 :syntax enable
 
@@ -31,3 +30,5 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 filetype plugin indent on
 NeoBundleCheck
 " ---------------------------
+
+:set history=1000
