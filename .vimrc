@@ -30,5 +30,8 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 filetype plugin indent on
 NeoBundleCheck
 " ---------------------------
+" Unite
+"call unite#custom_max_candidates('file_mru', 500)
+" ---------------------------
 
 :set history=1000
