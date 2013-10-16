@@ -34,4 +34,4 @@ NeoBundleCheck
 "call unite#custom_max_candidates('file_mru', 500)
 " ---------------------------
 
-:set history=1000
+:set history=3000
