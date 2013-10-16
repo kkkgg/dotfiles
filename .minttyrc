@@ -4,8 +4,8 @@ OpaqueWhenFocused=no
 Font=MeiryoKe_Console
 CursorType=block
 
+
 BoldAsFont=yes
-Term=xterm-256color
 BoldAsColour=yes
 
 Black=39,40,34
@@ -16,7 +16,7 @@ Blue=102,217,239
 Magenta=174,129,255
 Cyan=253,151,31
 White=248,248,242
-  
+
 BoldBlack=73,72,62
 BoldRed=249,38,114
 BoldGreen=166,226,46
@@ -27,6 +27,8 @@ BoldCyan=253,151,31
 BoldWhite=248,248,242
 
 ForegroundColour=248,248,242
-BackgroundColour=39,40,34
+BackgroundColour=0,0,0
 CursorColour=248,248,242
+
+
 
