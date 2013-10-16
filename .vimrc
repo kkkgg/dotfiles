@@ -31,4 +31,4 @@ filetype plugin indent on
 NeoBundleCheck
 " ---------------------------
 
-:set history=1000
+:set history=3000
