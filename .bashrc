@@ -205,3 +205,4 @@ export HISTSIZE=9999
 
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
+alias decodeurl='perl -mCGI -lnE "say CGI::unescape(\$_)"'
