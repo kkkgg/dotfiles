@@ -3,6 +3,7 @@ FontHeight=10
 OpaqueWhenFocused=no
 Font=MeiryoKe_Console
 CursorType=block
+Term=xterm-256color
 
 
 BoldAsFont=yes
