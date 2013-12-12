@@ -1,13 +1,26 @@
+scriptencoding utf-8
 set fileencodings=ucs-bom,utf-8,cp932,sjis,euc-jp,iso-2022-jp
 set hlsearch
 set tabstop=4
 set shiftwidth=4
 set autoindent
-syntax enable
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+
 " for vim-airline
 set t_Co=256
 
+" display tab
+set list
+set listchars=tab:>\ ,trail:-,nbsp:%,extends:>,precedes:<
+
+" display full width space
+augroup highlightIdegraphicSpace
+  autocmd!
+  autocmd VimEnter,WinEnter,Colorscheme * highlight IdeographicSpace cterm=underline ctermfg=DarkBlue guifg=DarkBlue
+  autocmd VimEnter,WinEnter * match IdeographicSpace /　/
+augroup END
+
+syntax enable
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
 " ------- neobundle -----------
 set nocompatible
