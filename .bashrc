@@ -203,6 +203,14 @@ shopt -u histappend
 export HISTSIZE=9999
 # ------
 
+# C-s disable
+stty stop undef
+
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias decodeurl='perl -mCGI -lnE "say CGI::unescape(\$_)"'
+
+#------
+# depends env
+#alias swaprf="perl /cygdrive/c/Perl32/site/lib/Mymod/swapRF.pl"
+#------
