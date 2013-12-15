@@ -21,6 +21,7 @@ augroup END
 
 syntax enable
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set laststatus=2
 
 " ------- neobundle -----------
 set nocompatible
@@ -43,7 +44,9 @@ NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/Shougo/vimshell.git'
 "NeoBundle 'git://github.com/Shougo/vinarise.git'
 NeoBundle 'bling/vim-airline'
-	let g:airline#extensions#tabline#enabled = 1
+	"let g:airline#extensions#tabline#enabled = 1
+	"let g:airline#extensions#tabline#tab_nr_type = 1
+	"let g:airline#extensions#tabline#fnamemod = ':t'
 	"let g:airline_left_sep = '▶'
 	"let g:airline_right_sep = '◀'
 	"let g:airline_left_sep = '▷'
