@@ -16,16 +16,16 @@ Yellow=230,219,116
 Blue=61,163,221
 Magenta=174,129,255
 Cyan=253,151,31
-White=248,248,242
+White=214,214,209
 
 BoldBlack=73,72,62
 BoldRed=249,38,114
 BoldGreen=166,226,46
-BoldYellow=230,219,116
+BoldYellow=127,119,0
 BoldBlue=102,217,239
 BoldMagenta=174,129,255
 BoldCyan=253,151,31
-BoldWhite=248,248,242
+BoldWhite=214,214,209
 
 ForegroundColour=248,248,242
 BackgroundColour=0,0,0
