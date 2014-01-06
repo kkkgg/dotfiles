@@ -23,6 +23,9 @@ syntax enable
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set laststatus=2
 
+" ------- key -----------
+:inoremap <C-@> <C-G>u<C-@>
+
 " ------- neobundle -----------
 set nocompatible
 
