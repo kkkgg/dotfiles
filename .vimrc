@@ -89,7 +89,14 @@ command! -range Kata2hira :<line1>,<line2>!perl -CIO -pE 'use utf8;tr/ァ-ン/�
 command! -range Hira2kata :<line1>,<line2>!perl -CIO -pE 'use utf8;tr/ぁ-ん/ァ-ン/'
 command! -range Hankana2zen :<line1>,<line2>!perl -CIO -mEncode -mEncode::JP::H2Z -pE 'use utf8;$_=Encode::encode("euc-jp",$_);Encode::JP::H2Z::h2z(\$_);$_=Encode::decode("euc-jp",$_)'
 command! -range Zen2han :<line1>,<line2>!perl -CIO -pE "use utf8;tr/０-９Ａ-Ｚａ-ｚ　！“”＃＄％＆‘’（）＊＋，－．／：；＜＝＞？＠［］＾＿｛｜｝/0-9A-Za-z \!\"\"\#\$\%&\'\'()*+,\\-.\\/:;<=>?@[]^_{\|}/"
+command! Randstr8 :r!perl -e 'print ['A'..'Z','0'..'9']->[int(rand(34))] for(1..8)'
 
+command! -nargs=1 Grep :vim <args> **|cw
+"command! -nargs=1 Grep :call GrepFunc(<f-args>)
+"function! GrepFunc(v1)
+"	vim a:v1 **|cw
+"	"/a:v1
+"endfunction
 
 " ---------------------------
 
