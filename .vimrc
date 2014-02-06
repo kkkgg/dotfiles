@@ -85,6 +85,8 @@ NeoBundleCheck
 " ---------------------------
 " user command
 
+command! -range Escape :<line1>,<line2>!perl -CIO -pE 'use utf8;s/([\#\%\\\\])/\\$1/g'
+
 command! -range Kata2hira :<line1>,<line2>!perl -CIO -pE 'use utf8;tr/ァ-ン/ぁ-ん/'
 command! -range Hira2kata :<line1>,<line2>!perl -CIO -pE 'use utf8;tr/ぁ-ん/ァ-ン/'
 command! -range Hankana2zen :<line1>,<line2>!perl -CIO -mEncode -mEncode::JP::H2Z -pE 'use utf8;$_=Encode::encode("euc-jp",$_);Encode::JP::H2Z::h2z(\$_);$_=Encode::decode("euc-jp",$_)'
@@ -97,6 +99,8 @@ command! -nargs=1 Grep :vim <args> **|cw
 "	vim a:v1 **|cw
 "	"/a:v1
 "endfunction
+
+command! Genmemotags :!grep '^□' **/*.txt | perl -nE '@a=split ":";$a[1]=~/([0-9A-Z]{8})/ &&  print "$1\t$a[0]\t/^$a[1]"' | sort > tags
 
 " ---------------------------
 
