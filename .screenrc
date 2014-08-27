@@ -3,3 +3,18 @@ vbell off
 escape ^Tt
 defbce on
 cjkwidth off
+
+bind -c focus j focus down
+bind -c focus k focus up
+bind -c focus h focus left
+bind -c focus l focus right
+bind -c focus t focus top
+bind -c focus b focus bottom
+bind -c focus p focus prev
+bind -c focus n focus next
+bind g command -c focus
+
+bind -c layout p layout prev
+bind -c layout n layout next
+bind -c layout s layout show
+bind u command -c layout

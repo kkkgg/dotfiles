@@ -100,7 +100,7 @@ command! -nargs=1 Grep :vim <args> **|cw|/<args>
 "	"/a:v1
 "endfunction
 
-command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){$a[1]=~/([0-9A-Z]{8})/ &&  print "$1\t$a[0]\t/^$a[1]"}' | sort > tags
+command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > tags
 
 " ---------------------------
 
