@@ -209,6 +209,7 @@ stty stop undef
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias decodeurl='perl -mCGI -lnE "say CGI::unescape(\$_)"'
-alias s2u='iconv -f sjis -t utf-8'
+alias s2u='iconv -f sjis -t utf-8 -c'
+alias e2u='iconv -f euc-jp -t utf-8 -c'
 alias vless='/usr/share/vim/vim74/macros/less.sh'
 
