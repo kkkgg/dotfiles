@@ -1,3 +1,4 @@
+" TODO サーバ用途とローカル用途を分ける
 scriptencoding utf-8
 set fileencodings=ucs-bom,utf-8,cp932,sjis,euc-jp,iso-2022-jp
 set hlsearch
@@ -7,6 +8,7 @@ set autoindent
 
 " for vim-airline
 set t_Co=256
+
 
 " display tab
 set list
@@ -21,6 +23,11 @@ augroup END
 
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set laststatus=2
+
+" vimdiff
+highlight DiffAdd    ctermfg=10
+highlight DiffChange ctermfg=10
+highlight DiffText   ctermfg=10
 
 " ------- key -----------
 :inoremap <C-@> <C-G>u<C-@>
@@ -39,6 +46,8 @@ NeoBundle 'Shougo/vimproc'
 "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 "NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
+	let g:ctrlp_mruf_max   = 100
+	let g:unite_source_file_mru_limit=100
 "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
 "NeoBundle 'git://github.com/Shougo/vimfiler.git'
 "NeoBundle 'git://github.com/Shougo/vimshell.git'
@@ -78,9 +87,6 @@ NeoBundle "slim-template/vim-slim"
 NeoBundleCheck
 call neobundle#end()
 " ---------------------------
-" Unite
-"call unite#custom_max_candidates('file_mru', 500)
-" ---------------------------
 " user command
 
 command! -range Escape :<line1>,<line2>!perl -CIO -pE 'use utf8;s/([\#\%\\\\])/\\$1/g'
@@ -90,16 +96,11 @@ command! -range Hira2kata :<line1>,<line2>!perl -CIO -pE 'use utf8;tr/ぁ-ん/�
 command! -range Hankana2zen :<line1>,<line2>!perl -CIO -mEncode -mEncode::JP::H2Z -pE 'use utf8;$_=Encode::encode("euc-jp",$_);Encode::JP::H2Z::h2z(\$_);$_=Encode::decode("euc-jp",$_)'
 command! -range Zen2han :<line1>,<line2>!perl -CIO -pE "use utf8;tr/０-９Ａ-Ｚａ-ｚ　！“”＃＄％＆‘’（）＊＋，－．／：；＜＝＞？＠［］＾＿｛｜｝/0-9A-Za-z \!\"\"\#\$\%&\'\'()*+,\\-.\\/:;<=>?@[]^_{\|}/"
 command! Randstr8 :r!perl -e 'print ['A'..'Z','0'..'9']->[int(rand(34))] for(1..8)'
-
 command! -nargs=1 Grep :vim <args> **|cw|/<args>
-"command! -nargs=1 Grep :call GrepFunc(<f-args>)
-"function! GrepFunc(v1)
-"	vim a:v1 **|cw
-"	"/a:v1
-"endfunction
-
 command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > tags
 
+" ---------------------------
+" post vimrc
 
 syntax enable
 filetype plugin indent on
