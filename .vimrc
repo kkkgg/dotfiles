@@ -19,7 +19,6 @@ augroup highlightIdegraphicSpace
   autocmd VimEnter,WinEnter * match IdeographicSpace /　/
 augroup END
 
-syntax enable
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set laststatus=2
 
@@ -32,9 +31,7 @@ set nocompatible
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 "NeoBundle 'git://github.com/Shougo/clang_complete.git'
@@ -76,9 +73,10 @@ NeoBundle 'bling/vim-airline'
 		\ 'S'  : 'S',
 		\ '' : 'S',
 		\ }
+NeoBundle "slim-template/vim-slim"
 
-filetype plugin indent on
 NeoBundleCheck
+call neobundle#end()
 " ---------------------------
 " Unite
 "call unite#custom_max_candidates('file_mru', 500)
@@ -102,7 +100,8 @@ command! -nargs=1 Grep :vim <args> **|cw|/<args>
 
 command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > tags
 
-" ---------------------------
 
+syntax enable
+filetype plugin indent on
 set history=3000
 
