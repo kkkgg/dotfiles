@@ -29,6 +29,9 @@ highlight DiffAdd    ctermfg=10
 highlight DiffChange ctermfg=10
 highlight DiffText   ctermfg=10
 
+" syntax
+au BufNewFile,BufRead *.txt set filetype=mytxt
+
 " ------- key -----------
 :inoremap <C-@> <C-G>u<C-@>
 
