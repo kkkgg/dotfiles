@@ -34,6 +34,9 @@ highlight DiffDelete ctermfg=10 ctermbg=52
 highlight DiffChange ctermfg=10 ctermbg=17
 highlight DiffText   ctermfg=10 ctermbg=21
 
+" syntax
+au BufNewFile,BufRead *.txt set filetype=mytxt
+
 " ------- key -----------
 :inoremap <C-@> <C-G>u<C-@>
 
@@ -103,7 +106,7 @@ command! -range Hankana2zen :<line1>,<line2>!perl -CIO -mEncode -mEncode::JP::H2
 command! -range Zen2han :<line1>,<line2>!perl -CIO -pE "use utf8;tr/０-９Ａ-Ｚａ-ｚ　！“”＃＄％＆‘’（）＊＋，－．／：；＜＝＞？＠［］＾＿｛｜｝/0-9A-Za-z \!\"\"\#\$\%&\'\'()*+,\\-.\\/:;<=>?@[]^_{\|}/"
 command! Randstr8 :r!perl -e 'print ['A'..'Z','0'..'9']->[int(rand(34))] for(1..8)'
 command! -nargs=1 Grep :vim <args> **|cw|/<args>
-command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > tags
+command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})$/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > tags
 
 " ---------------------------
 " post vimrc
