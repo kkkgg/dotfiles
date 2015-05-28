@@ -25,9 +25,14 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set laststatus=2
 
 " vimdiff
-highlight DiffAdd    ctermfg=10
-highlight DiffChange ctermfg=10
-highlight DiffText   ctermfg=10
+"highlight DiffAdd    ctermfg=10
+"highlight DiffDelete    ctermfg=10
+"highlight DiffChange ctermfg=10
+"highlight DiffText   ctermfg=10
+highlight DiffAdd    ctermfg=10 ctermbg=22
+highlight DiffDelete ctermfg=10 ctermbg=52
+highlight DiffChange ctermfg=10 ctermbg=17
+highlight DiffText   ctermfg=10 ctermbg=21
 
 " ------- key -----------
 :inoremap <C-@> <C-G>u<C-@>
@@ -83,6 +88,7 @@ NeoBundle 'bling/vim-airline'
 		\ '' : 'S',
 		\ }
 NeoBundle "slim-template/vim-slim"
+NeoBundle 'git://github.com/OrangeT/vim-csharp.git'
 
 NeoBundleCheck
 call neobundle#end()
