@@ -1,0 +1,11 @@
+
+# User specific aliases and functions
+
+if [ -f settings/dotfiles/.bashrc ]; then
+    . settings/dotfiles/.bashrc
+fi
+
+PATH_ADD=/cygdrive/c/boku/Dropbox/myUtility/sh/bin/
+if ! echo $PATH | sed 's/:/\n/g' | grep -F -xe "$PATH_ADD" > /dev/null; then
+	export PATH=$PATH:$PATH_ADD
+fi
