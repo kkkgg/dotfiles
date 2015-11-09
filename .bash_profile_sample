@@ -34,3 +34,22 @@ fi
 # if [ -d "${HOME}/info" ]; then
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
+
+# User specific aliases and functions
+
+# PATH_ADD=/cygdrive/c/xxx/Dropbox/myUtility/sh/bin
+# if ! echo $PATH | sed 's/:/\n/g' | grep -F -xe "$PATH_ADD" > /dev/null; then
+# 	export PATH="$PATH:$PATH_ADD"
+# fi
+# PATH_ADD="/cygdrive/c/Program Files/Microsoft SDKs/Windows/v6.0/VC/Bin"
+# if ! echo $PATH | sed 's/:/\n/g' | grep -F -xe "$PATH_ADD" > /dev/null; then
+# 	export PATH="$PATH:$PATH_ADD"
+# fi
+# PATH_ADD=/cygdrive/c/xxx/Dropbox/myUtility/cmd/bin
+# if ! echo $PATH | sed 's/:/\n/g' | grep -F -xe "$PATH_ADD" > /dev/null; then
+# 	export PATH=$PATH:$PATH_ADD
+# fi
+# 
+# alias perla='/cygdrive/c/Perl/bin/perl'
+# alias java='java -Dfile.encoding=UTF-8'
+# #alias javac='javac -J-Dfile.encoding=UTF-8'

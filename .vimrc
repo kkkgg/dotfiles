@@ -6,6 +6,11 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 
+" search
+set ignorecase
+" 大文字小文字が混在しているときは区別
+set smartcase
+
 " for vim-airline
 set t_Co=256
 
