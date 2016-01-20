@@ -3,6 +3,7 @@ vbell off
 escape ^Tt
 defbce on
 cjkwidth off
+term xterm-256color
 
 bind -c focus j focus down
 bind -c focus k focus up
