@@ -1,10 +1,10 @@
 " TODO サーバ用途とローカル用途を分ける
+" vim scriptの文字コード
 scriptencoding utf-8
+" ファイル文字コード自動判断、iconvに依存
 set fileencodings=ucs-bom,utf-8,cp932,sjis,euc-jp,iso-2022-jp
-set hlsearch
-set tabstop=4
-set shiftwidth=4
-set autoindent
+" vim互換モードオフ: 方向キー問題対応
+set nocompatible
 
 " search
 set ignorecase
@@ -39,67 +39,89 @@ highlight DiffDelete ctermfg=10 ctermbg=52
 highlight DiffChange ctermfg=10 ctermbg=17
 highlight DiffText   ctermfg=10 ctermbg=21
 
-" syntax
-au BufNewFile,BufRead *.txt set filetype=mytxt
 
 " ------- key -----------
 :inoremap <C-@> <C-G>u<C-@>
 
 " ------- neobundle -----------
-set nocompatible
+" TODO 環境変数がセットされていたらロードするようにする
+if 1
+  " Note: Skip initialization for vim-tiny or vim-small.
+  if 0 | endif
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
+
+  " Required:
+  call neobundle#begin(expand('~/.vim/bundle/'))
+
+  " Let NeoBundle manage NeoBundle
+  " Required:
+  NeoBundleFetch 'Shougo/neobundle.vim'
+
+  " My Bundles here:
+  NeoBundle 'Shougo/vimproc'
+  "NeoBundle 'git://github.com/Shougo/clang_complete.git'
+  "NeoBundle 'git://github.com/Shougo/echodoc.git'
+  "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+  "NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+  NeoBundle 'git://github.com/Shougo/unite.vim.git'
+    let g:ctrlp_mruf_max   = 100
+    let g:unite_source_file_mru_limit=100
+  "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
+  "NeoBundle 'git://github.com/Shougo/vimfiler.git'
+  "NeoBundle 'git://github.com/Shougo/vimshell.git'
+  "NeoBundle 'git://github.com/Shougo/vinarise.git'
+  NeoBundle 'bling/vim-airline'
+    "let g:airline#extensions#tabline#enabled = 1
+    "let g:airline#extensions#tabline#tab_nr_type = 1
+    "let g:airline#extensions#tabline#fnamemod = ':t'
+    "let g:airline_left_sep = '▶'
+    "let g:airline_right_sep = '◀'
+    "let g:airline_left_sep = '▷'
+    "let g:airline_right_sep = '◁'
+    let g:airline_left_sep = '◤'
+    let g:airline_right_sep = '◥'
+    let g:airline#extensions#whitespace#enabled = 0
+    let g:airline#extensions#default#section_truncate_width = {
+      \ 'b': 79,
+      \ 'x': 88,
+      \ 'y': 60,
+      \ 'z': 45,
+      \ }
+    let g:airline_mode_map = {
+      \ '__' : '-',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'c'  : 'C',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V',
+      \ '' : 'V',
+      \ 's'  : 'S',
+      \ 'S'  : 'S',
+      \ '' : 'S',
+      \ }
+  NeoBundle "slim-template/vim-slim"
+  NeoBundle 'git://github.com/OrangeT/vim-csharp.git'
+  NeoBundle 'surround.vim'
+
+  call neobundle#end()
+
+  " Required:
+  filetype plugin indent on
+
+  " If there are uninstalled bundles found on startup,
+  " this will conveniently prompt you to install them.
+  NeoBundleCheck
 endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-"NeoBundle 'git://github.com/Shougo/clang_complete.git'
-"NeoBundle 'git://github.com/Shougo/echodoc.git'
-"NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-"NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-	let g:ctrlp_mruf_max   = 100
-	let g:unite_source_file_mru_limit=100
-"NeoBundle 'git://github.com/Shougo/vim-vcs.git'
-"NeoBundle 'git://github.com/Shougo/vimfiler.git'
-"NeoBundle 'git://github.com/Shougo/vimshell.git'
-"NeoBundle 'git://github.com/Shougo/vinarise.git'
-NeoBundle 'bling/vim-airline'
-	"let g:airline#extensions#tabline#enabled = 1
-	"let g:airline#extensions#tabline#tab_nr_type = 1
-	"let g:airline#extensions#tabline#fnamemod = ':t'
-	"let g:airline_left_sep = '▶'
-	"let g:airline_right_sep = '◀'
-	"let g:airline_left_sep = '▷'
-	"let g:airline_right_sep = '◁'
-	let g:airline_left_sep = '◤'
-	let g:airline_right_sep = '◥'
-	let g:airline#extensions#whitespace#enabled = 0
-	let g:airline#extensions#default#section_truncate_width = {
-		\ 'b': 79,
-		\ 'x': 88,
-		\ 'y': 60,
-		\ 'z': 45,
-		\ }
-	let g:airline_mode_map = {
-		\ '__' : '-',
-		\ 'n'  : 'N',
-		\ 'i'  : 'I',
-		\ 'R'  : 'R',
-		\ 'c'  : 'C',
-		\ 'v'  : 'V',
-		\ 'V'  : 'V',
-		\ '' : 'V',
-		\ 's'  : 'S',
-		\ 'S'  : 'S',
-		\ '' : 'S',
-		\ }
-NeoBundle "slim-template/vim-slim"
-NeoBundle 'git://github.com/OrangeT/vim-csharp.git'
 
-NeoBundleCheck
-call neobundle#end()
 " ---------------------------
 " user command
 
@@ -113,10 +135,33 @@ command! Randstr8 :r!perl -e 'print ['A'..'Z','0'..'9']->[int(rand(34))] for(1..
 command! -nargs=1 Grep :vim <args> **|cw|/<args>
 command! Genmemotags :!grep  -P '[ \t　][0-9A-Z]{8}$'  **/*.txt | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})$/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > tags
 
+command! IndentTab set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+command! IndentSpace set expandtab tabstop=2 softtabstop=2 shiftwidth=2
+
 " ---------------------------
 " post vimrc
 
+" シンタックスハイライト
 syntax enable
+"colorscheme monokai
+" デフォルトのインデント設定
+set tabstop=4
+set shiftwidth=4
+set autoindent
+" ファイルタイプの検出と各種プラグインオン
 filetype plugin indent on
-set history=3000
+" ファイルタイプ設定とインデント設定
+augroup fileTypeSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.txt set filetype=mytxt
+    autocmd BufNewFile,BufRead *.txt setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
+" 検索語のハイライト
+set hlsearch
+" hlsearch color、検索語ハイライトの色
+hi Search ctermfg=black ctermbg=blue
+
+set history=3000
