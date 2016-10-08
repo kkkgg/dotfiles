@@ -112,6 +112,7 @@ if 1
   NeoBundle 'git://github.com/OrangeT/vim-csharp.git'
   " 文字列囲い込み入力補佐
   NeoBundle 'surround.vim'
+    let g:surround_{char2nr("「")} = "「\r」"
   " コメントアウト入力補佐
   NeoBundle 'tomtom/tcomment_vim'
 
