@@ -110,7 +110,10 @@ if 1
       \ }
   NeoBundle "slim-template/vim-slim"
   NeoBundle 'git://github.com/OrangeT/vim-csharp.git'
+  " 文字列囲い込み入力補佐
   NeoBundle 'surround.vim'
+  " コメントアウト入力補佐
+  NeoBundle 'tomtom/tcomment_vim'
 
   call neobundle#end()
 
