@@ -67,17 +67,17 @@ if 1
 
   " My Bundles here:
   NeoBundle 'Shougo/vimproc'
-  "NeoBundle 'git://github.com/Shougo/clang_complete.git'
-  "NeoBundle 'git://github.com/Shougo/echodoc.git'
-  "NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-  "NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-  NeoBundle 'git://github.com/Shougo/unite.vim.git'
+  "NeoBundle 'https://github.com/Shougo/clang_complete.git'
+  "NeoBundle 'https://github.com/Shougo/echodoc.git'
+  "NeoBundle 'https://github.com/Shougo/neocomplcache.git'
+  "NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
+  NeoBundle 'https://github.com/Shougo/unite.vim.git'
     let g:ctrlp_mruf_max   = 100
     let g:unite_source_file_mru_limit=100
-  "NeoBundle 'git://github.com/Shougo/vim-vcs.git'
-  "NeoBundle 'git://github.com/Shougo/vimfiler.git'
-  "NeoBundle 'git://github.com/Shougo/vimshell.git'
-  "NeoBundle 'git://github.com/Shougo/vinarise.git'
+  "NeoBundle 'https://github.com/Shougo/vim-vcs.git'
+  "NeoBundle 'https://github.com/Shougo/vimfiler.git'
+  "NeoBundle 'https://github.com/Shougo/vimshell.git'
+  "NeoBundle 'https://github.com/Shougo/vinarise.git'
   NeoBundle 'bling/vim-airline'
     "let g:airline#extensions#tabline#enabled = 1
     "let g:airline#extensions#tabline#tab_nr_type = 1
@@ -109,7 +109,7 @@ if 1
       \ '' : 'S',
       \ }
   NeoBundle "slim-template/vim-slim"
-  NeoBundle 'git://github.com/OrangeT/vim-csharp.git'
+  NeoBundle 'https://github.com/OrangeT/vim-csharp.git'
   " 文字列囲い込み入力補佐
   NeoBundle 'surround.vim'
     let g:surround_{char2nr("「")} = "「\r」"
@@ -169,3 +169,7 @@ set hlsearch
 hi Search ctermfg=black ctermbg=blue
 
 set history=3000
+
+" カレントディレクトリの自動変更は行わない
+set noautochdir
+
