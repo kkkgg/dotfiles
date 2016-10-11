@@ -1,8 +1,20 @@
+# screen呼ぶとウインドウサイズが変化してしまう問題対応と
+# ssh先でtigが崩れる問題対応(cjkwidthと双方必要)
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
-vbell off
-escape ^Tt
-defbce on
+
+# 縦分割時にvim等のレイアウトが崩れる問題対応
 cjkwidth off
+
+# エラー時に画面がフラッシュするのを防ぐ
+vbell off
+
+# コントロールキーをtへ変更
+escape ^Tt
+
+# 現在の背景色で消去する(256色対応)
+defbce on
+
+# 256色対応
 term xterm-256color
 
 bind -c focus j focus down
