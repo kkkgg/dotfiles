@@ -16,3 +16,4 @@ apt-cyg install tig
 apt-cyg install subversion
 apt-cyg install bc
 apt-cyg install chere
+apt-cyg install bash-completion
