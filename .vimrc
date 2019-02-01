@@ -72,6 +72,7 @@ if 1
   "NeoBundle 'https://github.com/Shougo/neocomplcache.git'
   "NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
   NeoBundle 'https://github.com/Shougo/unite.vim.git'
+  NeoBundle 'https://github.com/Shougo/neomru.vim.git'
     let g:ctrlp_mruf_max   = 100
     let g:unite_source_file_mru_limit=100
   "NeoBundle 'https://github.com/Shougo/vim-vcs.git'
