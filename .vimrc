@@ -71,6 +71,7 @@ if 1
   "NeoBundle 'https://github.com/Shougo/echodoc.git'
   "NeoBundle 'https://github.com/Shougo/neocomplcache.git'
   "NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
+
   NeoBundle 'https://github.com/Shougo/unite.vim.git'
   NeoBundle 'https://github.com/Shougo/neomru.vim.git'
     let g:ctrlp_mruf_max   = 100
@@ -79,6 +80,8 @@ if 1
   "NeoBundle 'https://github.com/Shougo/vimfiler.git'
   "NeoBundle 'https://github.com/Shougo/vimshell.git'
   "NeoBundle 'https://github.com/Shougo/vinarise.git'
+  NeoBundle 'Shougo/neomru.vim'
+
   NeoBundle 'bling/vim-airline'
     "let g:airline#extensions#tabline#enabled = 1
     "let g:airline#extensions#tabline#tab_nr_type = 1
