@@ -217,3 +217,7 @@ alias u2s='iconv -f utf-8 -t sjis -c'
 alias e2u='iconv -f euc-jp -t utf-8 -c'
 alias vless='/usr/share/vim/vim74/macros/less.sh'
 
+# command prompt
+export PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+
+
