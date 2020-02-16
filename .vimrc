@@ -29,6 +29,14 @@ augroup END
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set laststatus=2
 
+" for DropBox
+autocmd BufNewFile,BufRead *
+  \ if expand('%:~') =~ '/Dropbox/' |
+  \   set noswapfile |
+  \ else |
+  \   set swapfile |
+  \ endif
+
 " vimdiff
 "highlight DiffAdd    ctermfg=10
 "highlight DiffDelete    ctermfg=10
