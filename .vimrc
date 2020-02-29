@@ -153,6 +153,7 @@ command! -nargs=1 Grep :vim <args> **|cw|/<args>
 command! Genmemotags :!grep  -P '[ \t　\#][0-9A-Z]{8}\r*$' *.txt **/*.txt | tr -d $"\r" | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})$/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > .tags_in; cat .tags_in .tags_out | sort > tags
 command! GenmemotagsOut :!grep  -P '[ \t　\#][0-9A-Z]{8}\r*$' `cat .tags_path` | tr -d $"\r" | perl -CIO -nE 'use utf8;@a=split ":";if($a[0] \!~ / / && $a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})$/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > .tags_out
 
+" インデントのタブ、スペース切り替え
 command! IndentTab set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 command! IndentSpace set expandtab tabstop=2 softtabstop=2 shiftwidth=2
 " 作成中
