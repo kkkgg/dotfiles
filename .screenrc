@@ -1,3 +1,6 @@
+# /etc/profile.dを読み込む
+shell -/bin/bash
+
 # screen呼ぶとウインドウサイズが変化してしまう問題対応と
 # ssh先でtigが崩れる問題対応(cjkwidthと双方必要)
 termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'

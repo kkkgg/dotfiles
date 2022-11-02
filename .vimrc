@@ -10,6 +10,8 @@ set nocompatible
 set ignorecase
 " 大文字小文字が混在しているときは区別
 set smartcase
+" インクリメンタルサーチオフ
+set noincsearch
 
 " for vim-airline
 set t_Co=256
@@ -53,7 +55,7 @@ highlight DiffText   ctermfg=10 ctermbg=21
 
 " ------- neobundle -----------
 " TODO 環境変数がセットされていたらロードするようにする
-if 1
+if 0
   " Note: Skip initialization for vim-tiny or vim-small.
   if 0 | endif
 
@@ -149,6 +151,9 @@ command! -range Hankana2zen :<line1>,<line2>!perl -CIO -mEncode -mEncode::JP::H2
 command! -range Zen2han :<line1>,<line2>!perl -CIO -pE "use utf8;tr/０-９Ａ-Ｚａ-ｚ　！“”＃＄％＆‘’（）＊＋，－．／：；＜＝＞？＠［］＾＿｛｜｝/0-9A-Za-z \!\"\"\#\$\%&\'\'()*+,\\-.\\/:;<=>?@[]^_{\|}/"
 command! Randstr8 :r!perl -e 'print ['A'..'Z','0'..'9']->[int(rand(34))] for(1..8)'
 "command! Randstr8 :r!perl -e 'print "\#"; print ['A'..'Z','0'..'9']->[int(rand(34))] for(1..8)'
+" 開発中
+" command! AddTopicTag :Randstr8kJr　
+
 command! -nargs=1 Grep :vim <args> **|cw|/<args>
 command! Genmemotags :!grep  -P '[ \t　\#][0-9A-Z]{8}\r*$' *.txt **/*.txt | tr -d $"\r" | perl -CIO -nE 'use utf8;@a=split ":";if($a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})$/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > .tags_in; cat .tags_in .tags_out | sort > tags
 command! GenmemotagsOut :!grep  -P '[ \t　\#][0-9A-Z]{8}\r*$' `cat .tags_path` | tr -d $"\r" | perl -CIO -nE 'use utf8;@a=split ":";if($a[0] \!~ / / && $a[1] \!~ /→/ && ($a[1] \!~ /□/ || $a[1] =~ /^□/)){if($a[1]=~/([0-9A-Z]{8})$/){$k=$1;$a[1]=~s/\//\\\//g;print "$k\t$a[0]\t/^$a[1]"}}' | sort > .tags_out
@@ -156,8 +161,7 @@ command! GenmemotagsOut :!grep  -P '[ \t　\#][0-9A-Z]{8}\r*$' `cat .tags_path` 
 " インデントのタブ、スペース切り替え
 command! IndentTab set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 command! IndentSpace set expandtab tabstop=2 softtabstop=2 shiftwidth=2
-" 作成中
-" command! AddHashTag :Randstr8kJr　
+command! IndentSpace4 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 
 " ---------------------------
 " post vimrc

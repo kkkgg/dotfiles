@@ -1,5 +1,5 @@
 Transparency=low
-FontHeight=10
+FontHeight=8
 OpaqueWhenFocused=no
 Font=MeiryoKe_Console
 CursorType=block
@@ -25,3 +25,4 @@ BoldWhite=214,214,209
 ForegroundColour=248,248,242
 BackgroundColour=0,0,0
 CursorColour=248,248,242
+BellType=0
