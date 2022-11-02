@@ -178,6 +178,7 @@ augroup fileTypeSettings
     autocmd BufNewFile,BufRead *.txt setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.rb setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.md setlocal tabstop=4 softtabstop=4 shiftwidth=4 filetype=markdown
 augroup END
 
 " 検索語のハイライト
