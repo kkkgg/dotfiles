@@ -124,6 +124,7 @@ if 0
       \ }
   NeoBundle "slim-template/vim-slim"
   NeoBundle 'https://github.com/OrangeT/vim-csharp.git'
+  NeoBundle 'posva/vim-vue'
   " 文字列囲い込み入力補佐
   NeoBundle 'surround.vim'
     let g:surround_{char2nr("「")} = "「\r」"
