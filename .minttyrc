@@ -1,7 +1,9 @@
 Transparency=low
-FontHeight=8
+FontHeight=9
 OpaqueWhenFocused=no
-Font=MeiryoKe_Console
+#Font=MeiryoKe_Console
+#Font=ＭＳ ゴシック
+Font=ＭＳ ゴシック
 CursorType=block
 Term=xterm-256color
 BoldAsFont=yes

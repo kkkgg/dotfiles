@@ -1,7 +1,7 @@
 #/bin/sh
-apt-cyg install wget
+# 先に必要 wget, libiconv
 apt-cyg install curl
-apt-cyg install ssh
+apt-cyg install openssh
 apt-cyg install nc
 apt-cyg install screen
 apt-cyg install whois

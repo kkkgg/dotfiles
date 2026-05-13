@@ -1,3 +1,15 @@
+" ファイル内のVim設定を自動読み込みする機能を無効化（CVE-2026-34714対応で超重要）
+set nomodeline
+
+" netrwプラグインを無効化（CVE-2026-28417対策）
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
+" zipプラグインを無効化（CVE-2026-35177対策）
+let g:loaded_zip = 1
+let g:loaded_zipPlugin = 1
+
+
 " TODO サーバ用途とローカル用途を分ける
 " vim scriptの文字コード
 scriptencoding utf-8
